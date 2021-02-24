@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <div class="container">
+            <div class="row ">
+                {% for locations in location %}
+                <div class="col-md-6" style="padding:25px">
+                    <div class="card" style="box-shadow: 0px 2px 10px rgba(0,0,0,0.35);">
+                        <!--<img src="img/Lalbagh.jpg" alt="" class="card-img-top">-->
+                        <img src="{{ locations.image.url }}" class="card-img-top"> <br />
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ locations.title }}, {{ locations.district }}</h5>
+                            <p class="card-text">
+                                {{locations.description}}
+                            </p>
+                            <a href="{% url 'location_detail' locations.pk %}" class="btn btn-dark">See More...</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+{% endblock %}
+

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ location.title }}</h1>
+<div class="row">
+    <div class="col-md-8">
+        <img class="card-img-top" src="{{location.image.url}}" alt="Smiley face"> <br />
+    </div>
+    <div class="col-md-4">
+        <h5>About the Location:</h5>
+        <p>{{ location.description }}</p> <br><br>
+        <b>Available Guide in this area:</b> <button><a href="/tour_guide">Click here</a></button> <br><br>
+        <u><h5>Emergency Contact Number</h5></u>
+        {% for data in thana %}
+        <b>Police Station</b> : {{data.police_station}} <br>
+        <b>Contact Number</b> : {{data.police_phone}} <br>
+        <b>Fire Service</b> : {{data.fire_service}} <br>
+        <b> Contact Number </b> : {{data.fire_phone}} <br>
+        {% endfor %} <br>
+        <!-- weather widget start --><a target="_blank" href="https://www.booked.net/weather/dhaka-2125"><img src="https://w.bookcdn.com/weather/picture/28_2125_1_1_e67e22_250_d35401_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=124&domid=w209&anc_id=51242" alt="booked.net"/></a><!-- weather widget end -->
+        <br>
+
+
+    </div>
+</div>
+{% endblock %}

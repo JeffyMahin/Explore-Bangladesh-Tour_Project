@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <!--  Bootstrap Card Start -->
+
+       <section class="gallery-block cards-gallery">
+           <div class="container">
+
+               <div class="heading">
+                   <h2>Tourism Divisions Of Bangladesh</h2>
+               </div>
+
+
+
+               <div class="row">
+                   {% for divisions in division %}
+
+                   <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 transform-on-hover">
+                            <a href="{% url 'location' %}?division={{ divisions.name}}" class="lightbox">
+                            <!--<img src="{{location.image.url}}" class="lightbox"> <br />-->
+                                <!--<img src="img/Dhaka.svg" class="card-img-top">-->
+                                <img src="{{divisions.image.url}}" class="card-img-top"> <br />
+                            </a>
+                            <div class="card-body">
+                                <h6>{{ divisions.name }}</h6>
+                            </div>
+                        </div>
+                   </div>
+                   {% endfor %}
+
+
+               </div>
+
+
+           </div>
+       </section>
+
+    <!--  Bootstrap Card End -->
+
+{% endblock %}

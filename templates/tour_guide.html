@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mb-3 mt-3">
+      <table class="table-striped table-bordered mydatatable" style="width:100%">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for guide in tour_guide%}
+          <tr>
+            <td>{{guide.name}}</td>
+            <td>{{guide.phone}}</td>
+            <td>{{guide.email}}</td>
+            <td>{{guide.address}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/a076d05399.js"></script>
+    <!-- must include this script -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+      $('table').dataTable({searching: false, paging: true, info: false});
+    </script>
+{% endblock %}
